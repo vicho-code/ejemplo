@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La casa del pan</title>
+</head>
+<body>
+
+<header>
+    <img src="img/pngwing.com.png" alt="Descripción de la imagen" width="250" height="250">
+
+    <h1>La casa del Pan</h1>
+    <p>Disfruta del mejor pan y pasteles artesanales</p>
+</header>
+<center>
+<div class="button-container">
+    <button class="button">
+      <svg
+        class="icon"
+        stroke="currentColor"
+        fill="currentColor"
+        stroke-width="0"
+        viewBox="0 0 1024 1024"
+        height="1em"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z"
+        ></path>
+      </svg>
+    </button>
+    <button class="button">
+      <svg
+        class="icon"
+        stroke="currentColor"
+        fill="none"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        height="1em"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+        ></path>
+      </svg>
+    </button>
+    <a href="register.php">
+      <div class="logo">
+        <?php if (isset($_SESSION['foto']) && file_exists($_SESSION['foto'])): ?>
+            <a href="perfil.php">
+                <img src="<?php echo $_SESSION['foto']; ?>" alt="Foto de perfil" style="width:40px; height:40px; border-radius:50%;">
+            </a>
+        <?php else: ?>
+            <a href="login.php">
+                <img src="img/logo.png" alt="Logo por defecto" style="width:40px; height:40px;">
+            </a>
+        <?php endif; ?>
+    </div>
+    
+    </a>
+  
+    <button id="abrir-carrito" class="button">
+      <svg
+        class="icon"
+        stroke="currentColor"
+        fill="none"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        height="1em"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path
+          d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+        ></path>
+      </svg>
+    </button>
+  </div>
+</center>
+
+<section id="panes">
+  <h2>Tipos de Panes</h2>
+  <div class="grid-panes">
+
+    <!-- Pan 1 -->
+    <div class="contenedor-pan">
+      <h2>Pan de Molde</h2>
+      <p class="precio-unitario" data-precio="2786">$2786/kg</p>
+      <img src="img/pan de molde.webp" alt="Descripción de la imagen" width="250" height="250">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$2786</p>
+      <input hidden class="cart-toggle" id="cart-toggle-1" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-1">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+    <!-- Pan 2 -->
+    <div class="contenedor-pan">
+      <h2>Marraqueta</h2>
+      <p class="precio-unitario" data-precio="1095">$1095/kg</p>
+      <img src="img/marraqueta.png" width="200" height="250">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$1095</p>
+      <input hidden class="cart-toggle" id="cart-toggle-2" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-2">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+    <!-- Pan 3 -->
+    <div class="contenedor-pan">
+      <h2>Pan de Ajo</h2>
+      <p class="precio-unitario" data-precio="2490">$2490/kg</p>
+      <img src="img/pan de ajo.png" width="200" height="250">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$2490</p>
+      <input hidden class="cart-toggle" id="cart-toggle-3" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-3">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+    <!-- Pan 4 -->
+    <div class="contenedor-pan">
+      <h2>Pan Integral</h2>
+      <p class="precio-unitario" data-precio="1590">$1590/kg</p>
+      <img src="img/pan integral.png" width="200" height="250">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$1590</p>
+      <input hidden class="cart-toggle" id="cart-toggle-4" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-4">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+    <!-- Pan 5 -->
+    <div class="contenedor-pan">
+      <h2>Pan de Chocolate</h2>
+      <p class="precio-unitario" data-precio="1590">$1590/kg</p>
+      <img src="img/pan de chocolate.png" width="210" height="240">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$1590</p>
+      <input hidden class="cart-toggle" id="cart-toggle-5" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-5">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+    <!-- Pan 6 -->
+    <div class="contenedor-pan">
+      <h2>Pan Completo</h2>
+      <p class="precio-unitario" data-precio="2990">$2990/kg</p>
+      <img src="img/pan de completo.png" width="230" height="240">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$2990</p>
+      <input hidden class="cart-toggle" id="cart-toggle-6" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-6">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="pasteles">
+    <h2>Pasteles</h2>
+    <div class="grid-panes">
+
+    <div class="contenedor-pan">
+      <h2>Pastel de Vainilla</h2>
+      <p class="precio-unitario" data-precio="2786">$2786</p>
+      <img src="img/pastel de vainilla.png" width="200" height="250">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$2786</p>
+      <input hidden class="cart-toggle" id="cart-toggle-7" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-7">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+    <div class="contenedor-pan">
+      <h2>Pastel de Fresas</h2>
+      <p class="precio-unitario" data-precio="1095">$1095/kg</p>
+      <img src="img/pastel de fresas.png" width="200" height="250">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$1095</p>
+      <input hidden class="cart-toggle" id="cart-toggle-8" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-8">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+    <div class="contenedor-pan">
+      <h2>Pastel de Trufas</h2>
+      <p class="precio-unitario" data-precio="2490">$2490</p>
+      <img src="img/pastel de trufas.png" width="200" height="250">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$2490</p>
+      <input hidden class="cart-toggle" id="cart-toggle-9" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-9">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+    <div class="contenedor-pan">
+      <h2>Pastel de Red Velvet</h2>
+      <p class="precio-unitario" data-precio="1590">$1590/kg</p>
+      <img src="img/pastel de red velvet.png" width="200" height="250">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$1590</p>
+      <input hidden class="cart-toggle" id="cart-toggle-10" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-10">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+    <div class="contenedor-pan">
+      <h2>Pastel de Crema Oreo</h2>
+      <p class="precio-unitario" data-precio="1590">$1590/kg</p>
+      <img src="img/pastel de crema de oreo.png" width="210" height="240">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$1590</p>
+      <input hidden class="cart-toggle" id="cart-toggle-11" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-11">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+    <div class="contenedor-pan">
+      <h2>Cheesecake de Mora</h2>
+      <p class="precio-unitario" data-precio="2990">$2990/kg</p>
+      <img src="img/cheescake de mora.png" width="230" height="240">
+      <div class="contador">
+        <button class="btn-restar">−</button>
+        <span class="cantidad">1</span>
+        <button class="btn-sumar">+</button>
+      </div>
+      <p class="precio-total">$2990</p>
+      <input hidden class="cart-toggle" id="cart-toggle-12" type="checkbox" />
+      <label class="cart-button" for="cart-toggle-12">
+        <span class="cart-icon">
+          <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+            viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </span>
+        Add to Cart
+        <div class="progress-bar"></div>
+      </label>
+    </div>
+
+</section>
+
+<section id="precios">
+    <h2>Precios</h2>
+    <p>Consulta nuestros precios en los productos de arriba. ¡El mejor pan y pastel a los mejores precios!</p>
+</section>
+
+<footer>
+    <p>&copy; 2025 La Casa del Pan | Todos los derechos reservados</p>
+</footer>
+  
+<script>
+  document.querySelectorAll('.contenedor-pan').forEach(pan => {
+    const precioUnitario = parseInt(pan.querySelector('.precio-unitario').dataset.precio);
+    const cantidadSpan = pan.querySelector('.cantidad');
+    const precioTotal = pan.querySelector('.precio-total');
+    const btnSumar = pan.querySelector('.btn-sumar');
+    const btnRestar = pan.querySelector('.btn-restar');
+  
+    let cantidad = 1;
+  
+    function actualizarPrecio() {
+      precioTotal.textContent = `$${precioUnitario * cantidad}`;
+      cantidadSpan.textContent = cantidad;
+    }
+  
+    btnSumar.addEventListener('click', () => {
+      cantidad++;
+      actualizarPrecio();
+    });
+  
+    btnRestar.addEventListener('click', () => {
+      if (cantidad > 1) {
+        cantidad--;
+        actualizarPrecio();
+      }
+    });
+  
+    actualizarPrecio();
+  });
+  </script>
+  
+  <script src="carrito.js"> document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("abrir-carrito");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        window.location.href = "carrito.html";
+      });
+    } else {
+      console.error("No se encontró el botón con ID 'abrir-carrito'");
+    }
+  });</script>
+
+</body>
+</html>

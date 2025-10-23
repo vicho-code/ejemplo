@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #23242a;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.add-card {
+  width: 100%;
+  max-width: 400px;
+  background: #1c1c1c;
+  border: 2px solid #45f3ff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 20px #45f3ff66;
+  transition: box-shadow 0.3s ease;
+}
+
+.add-card:hover {
+  box-shadow: 0 0 30px #72dfffcc;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.title {
+  font-size: 0.95em;
+  font-weight: 500;
+  color: #45f3ff;
+  letter-spacing: 0.05em;
+}
+
+.input-field {
+  background: #111;
+  border: 1px solid #45f3ff44;
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: #e0e0e0;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: #45f3ff;
+  box-shadow: 0 0 10px #45f3ff66;
+}
+
+.split {
+  display: flex;
+  gap: 15px;
+}
+
+.label.small {
+  max-width: 120px; /* CVV más corto */
+}
+
+.checkout-btn {
+  background: linear-gradient(135deg, #2962ff, #1565c0);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 14px;
+  font-size: 1.05em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(41, 98, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.checkout-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.checkout-btn:hover::before {
+  left: 100%;
+}
+
+.checkout-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(41, 98, 255, 0.6);
+  background: linear-gradient(135deg, #3d7fff, #1976d2);
+}
+
+.checkout-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 8px rgba(41, 98, 255, 0.4);
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Pago</title>
+  <link rel="stylesheet" href="pago.css">
+</head>
+<body>
+  <div class="add-card">
+    <form class="form" id="formulario-pago">
+      <label class="label">
+        <span class="title">Direccion</span>
+        <input type="text" id="direccion" class="input-field" placeholder="Ingrese su Direccion" required>
+      </label>
+
+      <label class="label">
+        <span class="title">Numero de Tarjeta</span>
+        <input type="text" id="tarjeta" class="input-field" placeholder="0000 0000 0000 0000" maxlength="19" required>
+      </label>
+
+      <div class="split">
+        <label class="label">
+          <span class="title">Fecha de Expiracion</span>
+          <input type="text" id="exp" class="input-field" placeholder="MM/AA" maxlength="5" required>
+        </label>
+
+        <label class="label small">
+          <span class="title">CVV</span>
+          <input type="text" id="cvv" class="input-field" placeholder="CVV" maxlength="3" required>
+        </label>
+      </div>
+
+      <button type="submit" class="checkout-btn">Checkout</button>
+    </form>
+  </div>
+
+  <script>
+    // Tarjeta: solo números y espacios cada 4 dígitos
+    document.getElementById("tarjeta").addEventListener("input", function (e) {
+      e.target.value = e.target.value
+        .replace(/\D/g, "")
+        .replace(/(.{4})/g, "$1 ")
+        .trim()
+        .slice(0, 19);
+    });
+
+    // Expiración: solo MM/AA con separación automática
+    document.getElementById("exp").addEventListener("input", function (e) {
+      let valor = e.target.value.replace(/\D/g, "").slice(0, 4);
+      if (valor.length > 2) {
+        valor = valor.slice(0, 2) + "/" + valor.slice(2);
+      }
+      e.target.value = valor;
+    });
+
+    // CVV: solo números
+    document.getElementById("cvv").addEventListener("input", function (e) {
+      e.target.value = e.target.value.replace(/\D/g, "").slice(0, 3);
+    });
+
+    // Validación final
+    document.getElementById("formulario-pago").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const direccion = document.getElementById("direccion").value.trim();
+      const tarjeta = document.getElementById("tarjeta").value.replace(/\s/g, "");
+      const expiracion = document.getElementById("exp").value.trim();
+      const cvv = document.getElementById("cvv").value.trim();
+
+      // Validación general
+      if (!direccion || tarjeta.length !== 16 || expiracion.length !== 5 || cvv.length !== 3) {
+        alert("Por favor, completa todos los campos correctamente.");
+        return;
+      }
+
+      // Validación de fecha de expiración
+      const [mesStr, añoStr] = expiracion.split("/");
+      const mes = parseInt(mesStr, 10);
+      const año = parseInt("20" + añoStr, 10); // convertir 24 -> 2024
+
+      if (isNaN(mes) || isNaN(año) || mes < 1 || mes > 12) {
+        alert("Fecha de expiración inválida.");
+        return;
+      }
+
+      // Comparar con fecha actual
+      const hoy = new Date();
+      const fechaIngresada = new Date(año, mes - 1); // mes base 0
+
+      if (
+        fechaIngresada.getFullYear() < hoy.getFullYear() ||
+        (fechaIngresada.getFullYear() === hoy.getFullYear() &&
+         fechaIngresada.getMonth() < hoy.getMonth())
+      ) {
+        alert("La tarjeta ya expiró.");
+        return;
+      }
+
+      // Si todo está correcto
+      window.location.href = "index.php";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administrador</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #23242a;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #45f3ff, #1c1c1c);
+      padding: 25px 20px;
+      text-align: center;
+      color: #45f3ff;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      font-size: 1.8em;
+      box-shadow: 0 4px 10px rgba(69, 243, 255, 0.3);
+    }
+
+    nav {
+      background: #1c1c1c;
+      padding: 12px 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      box-shadow: inset 0 -2px 5px #45f3ff44;
+    }
+
+    nav a {
+      color: #45f3ff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1em;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #72dfff;
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 30px 20px;
+      flex-grow: 1;
+    }
+
+    h2 {
+      color: #45f3ff;
+      margin-bottom: 20px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      font-size: 1.4em;
+    }
+
+    .tabla-container {
+      background: #1c1c1c;
+      border: 2px solid #45f3ff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 15px #45f3ff66;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #e0e0e0;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #45f3ff22;
+    }
+
+    th {
+      background: #111;
+      color: #45f3ff;
+      font-weight: 600;
+      font-size: 0.95em;
+      letter-spacing: 0.05em;
+    }
+
+    tr:hover {
+      background: #2c2f38;
+    }
+
+    /* Botones */
+    .btn {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      margin-right: 5px;
+      background: #000;
+      color: #e0e0e0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-editar:hover {
+      color: #45f3ff;
+      box-shadow: 0 0 10px #45f3ff, 0 0 20px #45f3ff;
+    }
+
+    .btn-eliminar:hover {
+      color: #ff4545;
+      box-shadow: 0 0 10px #ff4545, 0 0 20px #ff4545;
+    }
+
+    footer {
+      background: #1c1c1c;
+      color: #45f3ff;
+      text-align: center;
+      padding: 15px 0;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      box-shadow: 0 -3px 6px #45f3ff44;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <header>Panel de Administrador</header>
+  
+  <nav>
+    <a href="#">Dashboard</a>
+    <a href="#">Usuarios</a>
+    <a href="#">Productos</a>
+    <a href="#">Pedidos</a>
+    <a href="#">Salir</a>
+  </nav>
+
+  <section>
+    <h2>Gestión de Usuarios</h2>
+    <div class="tabla-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Ana López</td>
+            <td>ana@example.com</td>
+            <td>Usuario</td>
+            <td>
+              <button class="btn btn-editar">Editar</button>
+              <button class="btn btn-eliminar">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Carlos Pérez</td>
+            <td>carlos@example.com</td>
+            <td>Administrador</td>
+            <td>
+              <button class="btn btn-editar">Editar</button>
+              <button class="btn btn-eliminar">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>María González</td>
+            <td>maria@example.com</td>
+            <td>Usuario</td>
+            <td>
+              <button class="btn btn-editar">Editar</button>
+              <button class="btn btn-eliminar">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>© 2025 La Casa del Pan - Panel de Administrador</footer>
+</body>
+</html>
